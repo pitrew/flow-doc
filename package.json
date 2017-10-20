@@ -1,0 +1,15 @@
+{
+  "name": "flow-doc",
+  "version": "1.0.0",
+  "description": "Flow types documentation",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js",
+    "demo": "python -m SimpleHTTPServer 6789"
+  },
+  "author": "Piotr Wyrobek",
+  "license": "MIT",
+  "devDependencies": {
+    "flow-parser": "^0.57.0"
+  }
+}

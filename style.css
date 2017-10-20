@@ -1,0 +1,16 @@
+
+
+h3 {
+  background-color: #cfcfcf;
+}
+
+#typesGraph {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  border: 4px solid lightgray;
+  background-color: #fff;
+}
+
