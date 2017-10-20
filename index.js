@@ -372,18 +372,15 @@ const processFile = (fileName, rootPath = '') => {
 		handleBodyElement(bodyElement, fileName);
 	}
 };
-if (process.argv.length !== 5) {
-	console.log('USAGE: [entry_point_path] [StartType] [file_suffix]');
-} else {
-	suffix = process.argv[4];
-	processFile(process.argv[2]);
+
+const genFlowDoc = (srcFile, startType, suffix) => {
+	
+	processFile(srcFile);
 	const fixed = fixGenerics(flatTypes);
-
-	const html = buildHTML(process.argv[3]);
-	fs.writeFileSync('index.html', tplLayout(html));
-}
-
-fs.writeFileSync('flat.json', JSON.stringify(flatTypes, null, 2));
+	const html = buildHTML(startType);
+	return tplLayout(html);
+};
+module.exports.default = genFlowDoc;
 
 
 

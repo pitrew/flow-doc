@@ -7,6 +7,9 @@
     "build": "node index.js",
     "demo": "python -m SimpleHTTPServer 6789"
   },
+  "bin": {
+    "flow-doc": "./bin/flow-doc"
+  },
   "author": "Piotr Wyrobek",
   "license": "MIT",
   "dependencies": {
