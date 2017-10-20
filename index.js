@@ -14,18 +14,18 @@ const graphConnectionsTmp = {};
 const tplLayout = data => `
 	<html>
 		<head>
-		<link rel="stylesheet" type="text/css" href="vis.min.css">
-		<link rel="stylesheet" type="text/css" href="style.css?${new Date().getTime()}">
+		<link rel="stylesheet" type="text/css" href="assets/vis.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/style.css?${new Date().getTime()}">
 		</head>
 		<body>
 			<div id="typesGraph"></div>	
 			${data}
-			<script type="text/javascript" src="vis.min.js"></script>
+			<script type="text/javascript" src="assets/vis.min.js"></script>
 			<script type="text/javascript">
 			const graphData = ${JSON.stringify(graphData)};
 			const graphConnections = ${JSON.stringify(convertGraphConnectionsToList())}
 			</script>
-			<script type="text/javascript" src="docs.js"></script>
+			<script type="text/javascript" src="assets/docs.js"></script>
 		</body>
 	</html>
 `;
@@ -358,13 +358,13 @@ const handleBodyElement = (bodyElement, fileName) => {
 	}
 };
 
-let suffix = '.js';
+let savedSuffix = 'js';
 
 /**
  * Process new file
  */
-const processFile = (fileName, rootPath = '') => {
-	const inputText = fs.readFileSync(`${fileName}.${suffix}`);
+const processFile = (fileName) => {
+	const inputText = fs.readFileSync(`${fileName}.${savedSuffix}`);
 	const parsedFile = p.parse(inputText.toString(), {});
 
 	for (let i = 0; i < parsedFile.body.length; i++) {
@@ -374,7 +374,7 @@ const processFile = (fileName, rootPath = '') => {
 };
 
 const genFlowDoc = (srcFile, startType, suffix) => {
-	
+	savedSuffix = suffix;
 	processFile(srcFile);
 	const fixed = fixGenerics(flatTypes);
 	const html = buildHTML(startType);
