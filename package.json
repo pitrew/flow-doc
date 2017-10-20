@@ -9,7 +9,7 @@
   },
   "author": "Piotr Wyrobek",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "flow-parser": "^0.57.0"
   }
 }
