@@ -1,8 +1,12 @@
 {
   "name": "flow-doc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flow types documentation",
   "main": "index.js",
+  "repository" : { 
+	  "type" : "git",
+	  "url" : "https://github.com/pitrew/flow-doc"
+  },
   "scripts": {
     "build": "node index.js",
     "demo": "python -m SimpleHTTPServer 6789"
